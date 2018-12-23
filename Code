@@ -1,0 +1,48 @@
+public class Test {
+
+    public static void main(String[] args) {
+
+        Scanner be = new Scanner(System.in);
+        String n = be.nextLine();
+        String[] arrayToString = n.split(" "), arrayToStringMin = arrayToString[0].split("");
+        if (Integer.parseInt(arrayToString[1]) == 0) {
+            System.out.println(arrayToString[0].replace(arrayToString[1], arrayToString[2]));
+        } else {
+            int value = 0, second = 0;
+            for (int i = 0; i < arrayToStringMin.length; i++) {
+                if (Integer.parseInt(arrayToStringMin[i]) == 0) {
+                    value++;
+                } else i = arrayToStringMin.length;
+            }
+            if (value == 0) {
+                System.out.println(arrayToString[0].replace(arrayToString[1], arrayToString[2]));
+            }else {
+                String[] arrayFinnalValues = new String[arrayToStringMin.length - value];
+                for (int i = value, j = 0; i < arrayToStringMin.length; i++) {
+                    arrayFinnalValues[j++] = String.valueOf(arrayToStringMin[i]);
+                }
+                String finnalOfZero = new String();
+                for (int i = 0; i < arrayFinnalValues.length; i++) {
+                    finnalOfZero += arrayFinnalValues[i].replace(arrayToString[1], arrayToString[2]);
+                }
+                String[] arraySplitZero = finnalOfZero.split("");
+                if (Integer.parseInt(arraySplitZero[0]) != 0) {
+                    System.out.println(finnalOfZero);
+                } else {
+                    for (int i = 0; i < arraySplitZero.length; i++) {
+                        if (Integer.parseInt(arraySplitZero[i]) == 0) {
+                            second++;
+                        } else i = arraySplitZero.length;
+                    }
+                    String[] arrayFinnal = new String[arraySplitZero.length - second];
+                    for (int i = second, j = 0; i < arrayFinnal.length; i++) {
+                        arrayFinnal[j++] = String.valueOf(arraySplitZero[i]);
+                    }
+                    for (int i = 0; i < arrayFinnal.length; i++) {
+                        System.out.print(arrayFinnal[i]);
+                    }
+                }
+            }
+        }
+    }
+}
