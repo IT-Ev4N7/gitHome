@@ -1,0 +1,47 @@
+import java.math.BigInteger;
+
+public class Fib
+{
+
+  public final static BigInteger[][] ONE = {{BigInteger.ZERO, BigInteger.ONE}, {BigInteger.ONE, BigInteger.ONE}};
+  public static BigInteger[][] mul(BigInteger[][] a, BigInteger[][] b) {
+    BigInteger[][] res = {
+      {a[0][0].multiply(b[0][0]).add(a[0][1].multiply(b[1][0])), a[0][0].multiply(b[0][1]).add(a[0][1].multiply(b[1][1]))},
+      {a[1][0].multiply(b[0][0]).add(a[1][1].multiply(b[1][0])), a[1][0].multiply(b[0][1]).add(a[1][1].multiply(b[1][1]))}
+    };
+    return res;
+  }
+  public static BigInteger[][] pow(BigInteger[][] a, int k) {
+
+    if (k == 0) return ONE;
+    if (k == 1) return a;
+    if (k == 2) return mul(a, a);
+    if (k % 2 == 1) return mul(ONE, pow(a, k - 1));
+    return pow(pow(a, k / 2), 2);
+  }
+  public static void main(String[] args)
+  {
+    System.out.println(1024+": "+pow(ONE, 1024)[0][1]);
+    System.out.println(4096+": "+pow(ONE, 4096)[0][1]);
+  }
+}
+
+-------------------------------------------------------------------------------------------------
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        String reader = in.nextLine();
+        String[] tokens = reader.split(" "); // разделяем слова по пробелу
+        for (int i = 0; i < tokens.length; i++) {
+            if (tokens[i].length() > 0) { //если это не пустое слово
+                String firstLetter = tokens[i].substring(0, 1).toUpperCase(); //берем первую букву и делаем заглавной
+                tokens[i] = firstLetter + tokens[i].substring(1); //вставляем большую букву
+            }
+            System.out.print(tokens[i] + " ");
+        }
+    }
+}
