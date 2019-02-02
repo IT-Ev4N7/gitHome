@@ -1,0 +1,42 @@
+import java.util.Scanner;
+
+public class Main {
+
+    public static int revers(int a) {
+        StringBuilder reversed = new StringBuilder(String.valueOf(a)).reverse();
+        return Integer.parseInt(reversed.toString());
+    }
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int startVal = scan.nextInt(), finVal = scan.nextInt(), cas = 0;
+        if (startVal > finVal) {
+            int input = finVal;
+            finVal = startVal;
+            startVal = input;
+        }
+        if (startVal == 1) cas--;
+        for (int n = startVal; n <= finVal; n++) {
+            boolean countS = true, countF = true;
+            int fr = revers(n);
+            if (fr == n) {
+                for (int i = 2; i < n; i++) {
+                    if ((n % i) == 0) {
+                        countS = false;
+                        break;
+                    }
+                }
+                for (int i = 2; i < fr; i++) {
+                    if ((fr % i) == 0) {
+                        countS = false;
+                        break;
+                    }
+                }
+                if (countS && countF) {
+                    cas++;
+                }
+            }
+        }
+        System.out.println(cas);
+    }
+}
