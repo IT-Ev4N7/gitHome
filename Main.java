@@ -16,11 +16,11 @@ public class Main {
         boolean isNum = isContainsNum(s, arrayOfNumber);
         boolean isDegree = s.contains(degree);
         arrayOfNumber = Arrays.asList("0");
-        if (!isNum){
+        if (!isNum) {
             return false;
         }
-        if (isDegree && isNum) {
-            arrayOfNumber = Arrays.asList(s.split("e"));
+        if (isDegree) {
+            arrayOfNumber = Arrays.asList(s.split(degree));
             if (!arrayOfNumber.get(0).equals("")) {
                 if (arrayOfNumber.get(0).charAt(arrayOfNumber.get(0).length() - 1) == ' ') {
                     return false;
@@ -29,24 +29,22 @@ public class Main {
                 return false;
             }
             s = refactorLine(s);
-            arrayOfNumber = Arrays.asList(s.split("e"));
+            arrayOfNumber = Arrays.asList(s.split(degree));
+            if (arrayOfNumber.size() > 2) {
+                return false;
+            }
             for (int i = 0; i < arrayOfNumber.size(); i++) {
-                if (arrayOfNumber.size() > 2) {
-                    return false;
-                }
                 if (arrayOfNumber.get(i).equals("")) {
                     arrayOfNumber.remove(i);
 
                 }
             }
         }
-        if (arrayOfNumber.size() > 2) {
-            return false;
-        } else if (arrayOfNumber.size() == 2) {
+        if (arrayOfNumber.size() == 2) {
             String[] arr = s.split("");
             int countDegree = 0;
             for (String i : arr) {
-                if (i.equals("e")) {
+                if (i.equals(degree)) {
                     countDegree++;
                 }
             }
