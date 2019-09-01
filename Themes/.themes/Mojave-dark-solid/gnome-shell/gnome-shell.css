@@ -248,6 +248,19 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   width: 50px;
   height: 20px;
   background-size: contain;
+  background-image: url("assets/toggle-off.svg");
+}
+
+.toggle-switch:checked {
+  background-image: url("assets/toggle-on.svg");
+}
+
+.popup-menu-item.selected .toggle-switch {
+  background-image: url("assets/toggle-off.svg");
+}
+
+.popup-menu-item.selected .toggle-switch:checked {
+  background-image: url("assets/toggle-on.svg");
 }
 
 .toggle-switch-us {
@@ -860,10 +873,10 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   -arrow-border-radius: 2px;
   -arrow-background-color: #242424;
   -arrow-border-width: 1px;
-  -arrow-border-color: rgba(255, 255, 255, 0.12);
+  -arrow-border-color: rgba(0, 0, 0, 0.35);
   -arrow-base: 5;
   -arrow-rise: 5;
-  background-color: #242424;
+  background-color: transparent;
   border-radius: 5px;
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.24), 0 3px 3px rgba(0, 0, 0, 0.345);
 }
@@ -1210,7 +1223,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 #panel .panel-button .system-status-icon {
-  icon-size: 1.23077em;
+  icon-size: 1.2307692308em;
   padding: 0 3px;
 }
 
@@ -1593,7 +1606,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 .message-icon-bin > StIcon {
   color: rgba(255, 255, 255, 0.9);
-  icon-size: 1.23077em;
+  icon-size: 1.2307692308em;
   -st-icon-style: requested;
   margin: 4px 0px 4px 4px;
 }
@@ -1617,7 +1630,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .message-secondary-bin > StIcon {
-  icon-size: 1.23077em;
+  icon-size: 1.2307692308em;
 }
 
 .message-title {
@@ -1723,7 +1736,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .popup-menu-icon {
-  icon-size: 1.23077em;
+  icon-size: 1.2307692308em;
 }
 
 .window-close {
@@ -2275,7 +2288,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .notification-banner .secondary-icon {
-  icon-size: 1.23077em;
+  icon-size: 1.2307692308em;
 }
 
 .notification-banner .notification-actions {
@@ -2326,7 +2339,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .secondary-icon {
-  icon-size: 1.23077em;
+  icon-size: 1.2307692308em;
 }
 
 .chat-body {
@@ -2614,7 +2627,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .candidate-page-button-icon {
-  icon-size: 1.23077em;
+  icon-size: 1.2307692308em;
 }
 
 /* Auth Dialogs & Screen Shield */
@@ -2641,9 +2654,9 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .login-dialog StEntry {
-  color: rgba(255, 255, 255, 0.85);
-  selection-background-color: rgba(255, 255, 255, 0.3);
-  selected-color: rgba(255, 255, 255, 0.85);
+  selection-background-color: rgba(255, 255, 255, 0.1);
+  selected-background-color: rgba(255, 255, 255, 0.1);
+  selected-color: #315bef;
   background-color: #212121;
   border-radius: 5px;
   border: 1px solid rgba(255, 255, 255, 0.12);
@@ -2658,7 +2671,6 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 .login-dialog StEntry:insensitive {
   color: rgba(255, 255, 255, 0.5);
   border: 1px solid rgba(255, 255, 255, 0.5);
-  color: rgba(255, 255, 255, 0.5);
 }
 
 .login-dialog .modal-dialog-button-box {
@@ -2705,14 +2717,14 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 .login-dialog .modal-dialog-button:default {
   color: rgba(255, 255, 255, 0.85);
   background-color: #315bef;
-  border: 1px solid rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.35);
   text-shadow: none;
   icon-shadow: none;
 }
 
 .login-dialog .modal-dialog-button:default:hover, .login-dialog .modal-dialog-button:default:focus {
   color: rgba(255, 255, 255, 0.85);
-  border-color: rgba(0, 0, 0, 0.15);
+  border-color: rgba(0, 0, 0, 0.35);
   background-color: #3f66f0;
   text-shadow: none;
   icon-shadow: none;
@@ -2721,7 +2733,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 .login-dialog .modal-dialog-button:default:active {
   color: #FFFFFF;
   background-color: #315bef;
-  border-color: rgba(0, 0, 0, 0.15);
+  border-color: rgba(0, 0, 0, 0.35);
   text-shadow: none;
   icon-shadow: none;
 }
@@ -2729,7 +2741,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 .login-dialog .modal-dialog-button:default:insensitive {
   color: rgba(255, 255, 255, 0.5);
   background-color: rgba(255, 255, 255, 0.15);
-  border-color: rgba(0, 0, 0, 0.15);
+  border-color: rgba(0, 0, 0, 0.35);
   text-shadow: none;
   icon-shadow: none;
 }
